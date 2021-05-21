@@ -30,16 +30,16 @@ function watsonResponse(ctx) {
 }
 
 function showMessage(ctx, res) {
-  const response = res.result.output.generic[0];
+  let response = res.result.output.generic[0];
 
   if(response.response_type === 'text'){
 
-    const message = response.text;
+    let message = response.text;
     ctx.reply(message);
   }
   else if(response.response_type === 'option'){
 
-    const message = response.title + "\n\n";
+    let message = response.title + "\n\n";
 
     for(let i = 0; i<(response.options).length; i++){
       message += `∘  ${response.options[i].label}\n`;
